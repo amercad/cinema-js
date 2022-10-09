@@ -71,13 +71,13 @@ export function pintarPeliculas(peliculas,fila){
      // crear acores
      let Actores=document.createElement("P")
      Actores.classList.add("text-left","tamano")
-     Actores.textContent="Actores: "+pelicula.Actores
+     Actores.textContent="Actores: "+pelicula.actores
 
      // creamos director
 
      let director=document.createElement("P")
      director.classList.add("text-left","tamano")
-     director.textContent="Director: "+pelicula.Director
+     director.textContent="Director: "+pelicula.director
 
      // clasificacion
       

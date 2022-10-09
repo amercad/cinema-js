@@ -1,7 +1,7 @@
 
-import {peliculas} from '../herper/baseDatos.js'
-import { estrenos } from '../herper/baseDatos2.js'
-import { pintarPeliculas } from '../herper/pintarPeliculas.js'
+import {peliculas} from '../helpers/baseDatos.js'
+import { estrenos } from '../helpers/baseDatos2.js'
+import { pintarPeliculas } from '../helpers/pintarPeliculas.js'
 
  // recorriendo un arreglo en js
 

@@ -1,4 +1,4 @@
-import { pintarSilla } from "../herper/pintarSilla.js";
+import { pintarSilla } from "../helpers/pintarSilla.js";
 
 const asientos = [
     [
@@ -14,11 +14,14 @@ const asientos = [
     ]
 ];
 
-const cinema = document.getElementById('salaCinema');
+let cinema = document.getElementById('salaCinema');
+const reservaSala = document.getElementById('reservaSala');
 
 // Recorrer los asientos y aplicar traversing
 
 pintarSilla(asientos, cinema);
+
+let contadorSillaSeleccionada = 0;
 
 cinema.addEventListener('click', (e) => {
     
@@ -26,8 +29,6 @@ cinema.addEventListener('click', (e) => {
         const idAsientoSeleccionado = e.target.id;
         // const reserva = asientos.find( id => id == idAsientoSeleccionado );
         // console.log(reserva);
-        
-        const estadoReserva = asientos.find( hileras => hileras.find( hilera => hilera.id === idAsientoSeleccionado ) )
         
      
         
@@ -40,12 +41,12 @@ cinema.addEventListener('click', (e) => {
                     
                     if (asiento.estado === 0) {
                         asiento.estado = 1;
-                        e.target.src = '../../assets/img/silla-de-cine-verde.png';
-                
+                        e.target.src =  '../../assets/img/silla-de-cine-verde.png';
+                        contadorSillaSeleccionada++;
                     } else if(asiento.estado === 1) {
                         asiento.estado = 0;
                         e.target.src = '../../assets/img/silla-de-cine.png';
-                    
+                        contadorSillaSeleccionada--;
                     }
                 
                 }
@@ -54,6 +55,65 @@ cinema.addEventListener('click', (e) => {
             
         })
     }
+
+});
+
+const reserva = document.getElementById('reserva');
+
+reserva.addEventListener('click', () => {
+
+    cinema.innerHTML = "";
+
     
+    asientos.forEach(hilera => {
+        
+        
+        hilera.forEach( asiento => {
+            
+            if (asiento.estado === 1) {
+                asiento.estado = 2;
+            }
+            
+        })
+        
+    });
+    
+   let precioBoleta = 12000;
+
+    reservaSala.innerHTML = '';
+    reservaSala.classList.add('card');
+    const divHeader = document.createElement('div');
+    divHeader.classList.add('card-header');
+
+    divHeader.textContent = 'Factura';
+
+    const divListGroud= document.createElement('div');
+    divListGroud.classList.add('list-group', 'list-group-flush');
+
+    const divPrecio = document.createElement('li');
+    divPrecio.classList.add('list-group-item');
+
+    divPrecio.textContent = `Precio de la boleta: ${precioBoleta}`;
+
+    const cantidadBoleta = document.createElement('li');
+    cantidadBoleta.classList.add('list-group-item');
+
+    cantidadBoleta.textContent = `Cantidad boleta: ${ contadorSillaSeleccionada }`;
+
+    const totalPago = document.createElement('li');
+    totalPago.classList.add('list-group-item');
+
+    totalPago.textContent = `Total: ${ contadorSillaSeleccionada * precioBoleta }`;
+
+
+    divListGroud.appendChild(divPrecio);
+    divListGroud.appendChild(cantidadBoleta);
+    divListGroud.appendChild(totalPago);
+    reservaSala.appendChild(divHeader);
+    reservaSala.appendChild(divListGroud);
+
+    pintarSilla(asientos, cinema);
+    contadorSillaSeleccionada = 0;
+
 
 });
