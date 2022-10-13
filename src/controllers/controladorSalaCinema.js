@@ -13,7 +13,6 @@ const asientos = [
         {id: "a3", estado: 0}, {id: "b3", estado: 0}, {id: "c3", estado: 2}, {id: "d3", estado: 0}
     ]
 ];
-
 let cinema = document.getElementById('salaCinema');
 const reservaSala = document.getElementById('reservaSala');
 
@@ -74,6 +73,7 @@ reserva.addEventListener('click', () => {
             if (asiento.estado === 1) {
                 asiento.estado = 2;
                 puestos.push( asiento.id );
+                
             }
             
         })
