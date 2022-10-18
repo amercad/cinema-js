@@ -22,6 +22,7 @@ export const pintarFactura = (cinema, asientos, contadorSillaSeleccionada) => {
 
     
    let precioBoleta = 12000;
+   const peliculaSeleccionada = JSON.parse(localStorage.getItem("peliculaSeleccionada"));
 
     reservaSala.innerHTML = '';
     reservaSala.classList.add('card');
@@ -32,6 +33,10 @@ export const pintarFactura = (cinema, asientos, contadorSillaSeleccionada) => {
 
     const divListGroud= document.createElement('div');
     divListGroud.classList.add('list-group', 'list-group-flush');
+
+    const divNombrePelicula = document.createElement('li');
+    divNombrePelicula.classList.add('list-group-item');
+    divNombrePelicula.textContent = 'Película: ' + peliculaSeleccionada.nombre;
 
     const divPrecio = document.createElement('li');
     divPrecio.classList.add('list-group-item');
@@ -54,6 +59,7 @@ export const pintarFactura = (cinema, asientos, contadorSillaSeleccionada) => {
     totalPago.textContent = `Total: ${ contadorSillaSeleccionada * precioBoleta }`;
 
 
+    divListGroud.appendChild(divNombrePelicula);
     divListGroud.appendChild(divPrecio);
     divListGroud.appendChild(cantidadBoleta);
     divListGroud.appendChild(numeroPuesto);

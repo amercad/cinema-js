@@ -8,7 +8,7 @@ export const pintarSilla = (asientos, cinema) => {
         hilera.forEach(asiento => {
             
             const columna = document.createElement('div');
-            columna.classList.add('col-3');
+            columna.classList.add('col-2', 'mx-auto');
             
             const fotoSilla = document.createElement('img');
             fotoSilla.classList.add('img-fluid', 'w-100');

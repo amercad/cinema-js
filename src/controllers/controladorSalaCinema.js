@@ -3,15 +3,15 @@ import { pintarSilla } from "../helpers/pintarSilla.js";
 
 let asientos = [
     [
-        {id: "a1", estado: 0}, {id: "b1", estado: 0}, {id: "c1", estado: 0}, {id: "d1", estado: 0}
+        {id: "a1", estado: 0}, {id: "b1", estado: 0}, {id: "c1", estado: 0}, {id: "d1", estado: 0}, {id: "e1", estado: 0}
     ],
     
     [
-        {id: "a2", estado: 0}, {id: "b2", estado: 2}, {id: "c2", estado: 0}, {id: "d2", estado: 0}
+        {id: "a2", estado: 0}, {id: "b2", estado: 2}, {id: "c2", estado: 0}, {id: "d2", estado: 0}, {id: "e2", estado: 0}
     ],
     
     [
-        {id: "a3", estado: 0}, {id: "b3", estado: 0}, {id: "c3", estado: 2}, {id: "d3", estado: 0}
+        {id: "a3", estado: 0}, {id: "b3", estado: 0}, {id: "c3", estado: 2}, {id: "d3", estado: 0}, {id: "e3", estado: 0}
     ]
 ];
 let cinema = document.getElementById('salaCinema');
@@ -68,6 +68,8 @@ cinema.addEventListener('click', (e) => {
 const reserva = document.getElementById('reserva');
 
 reserva.addEventListener('click', () => {
+
+    if (contadorSillaSeleccionada < 1) return;
 
     pintarFactura(cinema, asientos, contadorSillaSeleccionada);
     contadorSillaSeleccionada = 0;
