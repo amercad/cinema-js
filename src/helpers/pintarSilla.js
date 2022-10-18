@@ -1,4 +1,6 @@
 export const pintarSilla = (asientos, cinema) => {
+
+
     asientos.forEach(hilera => { 
         const fila = document.createElement('div');
         fila.classList.add('row');
@@ -18,6 +20,7 @@ export const pintarSilla = (asientos, cinema) => {
                 fotoSilla.src = "../../assets/img/silla-de-cine-verde.png";
             } else {
                 fotoSilla.src = "../../assets/img/silla-de-cine-rojo.png";
+                localStorage.setItem('sillasOcupadas', JSON.stringify(asientos));
             }
             
             columna.appendChild( fotoSilla );

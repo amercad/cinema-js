@@ -1,6 +1,6 @@
 const URI = 'https://api.spotify.com/v1/artists/4npEfmQ6YuiwW1GpUmaq3F/top-tracks?market=US';
 
-const TOKEN = 'Bearer BQAuqwknZv0Fxfgnjp-17vEZA_8T5sDHJgAgd0LcacxjYfzjC-YMDD7zfWm8gr6fUYzffZ7MTVsPDVgTuezxAoRcrKBx_0IpDmi8WZ1YfDflBtPqAZHp18Z9NAeI3tg1Mw9nZ3FoY1HjUCzpG5_-jowpPcAfZV8kYkFvi2y2eMc9aKrL5K5l_QM4E4KeqxlbCxw';
+const TOKEN = 'Bearer BQDAjor4U1q6SnNuoTJdOJ4VUCjmVxMyN6zH5w__aXyulvOyEuxwJY8IgJZgizH65MKV3l1423zOag5owTBuC_LEbYdGHGpadvkVMYAde7jm1Wek1LqhsCp4y1eW6pOABWZReITZLk1SeCo-mtUtrIIBXAtDseHBOknVav1q-KGW2DgHfjfMzn_invTP9MXusP8';
 
 const peticion = {
     method: 'GET',
